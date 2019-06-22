@@ -19,7 +19,7 @@ for URL in $(echo ${DOWNLOAD_URLS})
 
 Now you are good to start/run your java app. 
 
-If you are on docker, you may consider building a docker image 
+If you are on docker, just curl or wget the shell script which can takecare of all the certificate import/export for you. Refer the below example
 
 `#Dockerfile `
 ```
