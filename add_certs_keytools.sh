@@ -1,9 +1,9 @@
-# we expect jave home to be set, in most of the cases it will be there by default
+# we expect jave home to be set, in most of the cases it will be set by default
 # Please set the env variable DOWNLOAD_URLS, eg: DOWNLOAD_URLS="spring.io" You can also have multiple urls added to DOWNLOAD_URLS seperated by space
 # eg: DOWNLOAD_URLS="spring.io graph.microsoft.com login.microsoftonline.com" - in this case all the urls will be considered for fetching the certificate
 # Note - Dont give https or any port number
 
-#comment this if you have openssl installed.
+#comment the below line if you have openssl installed.
 yum install openssl -y
 
 for URL in $(echo ${DOWNLOAD_URLS})
