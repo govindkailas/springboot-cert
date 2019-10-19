@@ -2,6 +2,10 @@
 # Please set the env variable DOWNLOAD_URLS, eg: DOWNLOAD_URLS="spring.io" You can also have multiple urls added to DOWNLOAD_URLS seperated by space
 # eg: DOWNLOAD_URLS="spring.io graph.microsoft.com login.microsoftonline.com" - in this case all the urls will be considered for fetching the certificate
 # Note - Dont give https or any port number
+
+#comment this if you have openssl installed.
+yum install openssl -y
+
 for URL in $(echo ${DOWNLOAD_URLS})
     do
 		echo "Fetching certificate from $URL"
