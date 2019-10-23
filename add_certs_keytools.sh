@@ -4,7 +4,7 @@
 # Note - Dont give https or any port number
 
 #comment the below line if you have openssl installed.
-#yum install openssl -y
+yum install openssl -y
 
 for URL in $(echo ${DOWNLOAD_URLS})
     do
