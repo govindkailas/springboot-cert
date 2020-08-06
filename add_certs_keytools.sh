@@ -9,8 +9,8 @@ yum install openssl -y
 for URL in $(echo ${DOWNLOAD_URLS})
     do
 		echo "Fetching certificate from $URL"
-		echo -n | openssl s_client -connect ${URL}:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${JAVA_HOME}/jre/lib/security/${URL}.cert
-		echo -n | openssl s_client -connect ${URL}:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${JAVA_HOME}/lib/security/${URL}.cert
+		echo -n | openssl s_client -connect ${URL}:443 -showcerts | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${JAVA_HOME}/jre/lib/security/${URL}.cert
+		echo -n | openssl s_client -connect ${URL}:443 -showcerts| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${JAVA_HOME}/lib/security/${URL}.cert
 		${JAVA_HOME}/bin/keytool -import -noprompt  -storepass changeit -alias ${URL} -keystore ${JAVA_HOME}/jre/lib/security/cacerts -file ${JAVA_HOME}/jre/lib/security/${URL}.cert
 		${JAVA_HOME}/bin/keytool -import -noprompt  -storepass changeit -alias ${URL} -keystore ${JAVA_HOME}/lib/security/cacerts -file ${JAVA_HOME}/lib/security/${URL}.cert
 done
